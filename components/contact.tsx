@@ -1,44 +1,56 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState, useRef } from "react"
-import { motion, useInView } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Card, CardContent } from "@/components/ui/card"
-import { Github, Linkedin, Mail, MapPin, Send } from "lucide-react"
+import { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent } from "@/components/ui/card";
+import { Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    // Reset form
-    setFormData({ name: "", email: "", message: "" })
-    setIsSubmitting(false)
+      if (!res.ok) {
+        throw new Error("Failed to send message");
+      }
 
-    // In a real application, you would send the form data to your backend
-    console.log("Form submitted:", formData)
-  }
+      setFormData({ name: "", email: "", message: "" });
+      // Optionally show a success message here
+    } catch (error) {
+      // Optionally show an error message here
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -48,12 +60,12 @@ export default function Contact() {
         staggerChildren: 0.1,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  }
+  };
 
   return (
     <section id="contact" ref={ref} className="py-20 px-4">
@@ -64,17 +76,31 @@ export default function Contact() {
           animate={isInView ? "visible" : "hidden"}
           className="text-center mb-12"
         >
-          <motion.h2 variants={itemVariants} className="text-3xl font-bold mb-4">
+          <motion.h2
+            variants={itemVariants}
+            className="text-3xl font-bold mb-4"
+          >
             Get In Touch
           </motion.h2>
-          <motion.p variants={itemVariants} className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind or want to discuss potential opportunities? Feel free to reach out!
+          <motion.p
+            variants={itemVariants}
+            className="text-lg text-muted-foreground max-w-2xl mx-auto"
+          >
+            Have a project in mind or want to discuss potential opportunities?
+            Feel free to reach out!
           </motion.p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <motion.div variants={containerVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}>
-            <motion.h3 variants={itemVariants} className="text-2xl font-semibold mb-6">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          >
+            <motion.h3
+              variants={itemVariants}
+              className="text-2xl font-semibold mb-6"
+            >
               Contact Information
             </motion.h3>
 
@@ -85,10 +111,10 @@ export default function Contact() {
                   <div>
                     <h4 className="font-medium">Email</h4>
                     <a
-                      href="mailto:contact@example.com"
+                      href="https://gmail.com"
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                      contact@example.com
+                      mgoel1296@gmail.com
                     </a>
                   </div>
                 </CardContent>
@@ -100,12 +126,12 @@ export default function Contact() {
                   <div>
                     <h4 className="font-medium">GitHub</h4>
                     <a
-                      href="https://github.com/username"
+                      href="https://github.com/goel-aayush"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                      github.com/username
+                      github.com/goel-aayush
                     </a>
                   </div>
                 </CardContent>
@@ -117,12 +143,12 @@ export default function Contact() {
                   <div>
                     <h4 className="font-medium">LinkedIn</h4>
                     <a
-                      href="https://linkedin.com/in/username"
+                      href="https://linkedin.com/in/aayush-goel-4284611b5/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                      linkedin.com/in/username
+                      linkedin.com/in/aayush-goel-4284611b5/
                     </a>
                   </div>
                 </CardContent>
@@ -133,19 +159,30 @@ export default function Contact() {
                   <MapPin className="h-5 w-5 mr-4 text-primary" />
                   <div>
                     <h4 className="font-medium">Location</h4>
-                    <p className="text-muted-foreground">San Francisco, CA, USA</p>
+                    <p className="text-muted-foreground">Ghaziabad, India</p>
                   </div>
                 </CardContent>
               </Card>
             </motion.div>
           </motion.div>
 
-          <motion.div variants={containerVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}>
-            <motion.h3 variants={itemVariants} className="text-2xl font-semibold mb-6">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          >
+            <motion.h3
+              variants={itemVariants}
+              className="text-2xl font-semibold mb-6"
+            >
               Send Me a Message
             </motion.h3>
 
-            <motion.form variants={itemVariants} onSubmit={handleSubmit} className="space-y-6">
+            <motion.form
+              variants={itemVariants}
+              onSubmit={handleSubmit}
+              className="space-y-6"
+            >
               <div>
                 <label htmlFor="name" className="block mb-2 font-medium">
                   Name
@@ -226,5 +263,5 @@ export default function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { ModeToggle } from "./mode-toggle"
-import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { ModeToggle } from "./mode-toggle";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -13,34 +13,36 @@ const navLinks = [
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
-]
+];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10)
-    }
+      setScrolled(window.scrollY > 10);
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToSection = (href: string) => {
-    setIsOpen(false)
-    const element = document.querySelector(href)
+    setIsOpen(false);
+    const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <header
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300",
-        scrolled ? "bg-background/80 backdrop-blur-md shadow-sm" : "bg-transparent",
+        scrolled
+          ? "bg-background/80 backdrop-blur-md shadow-sm"
+          : "bg-transparent"
       )}
     >
       <div className="container mx-auto px-4 py-4">
@@ -49,11 +51,11 @@ export default function Navbar() {
             href="#home"
             className="text-xl font-bold tracking-tight"
             onClick={(e) => {
-              e.preventDefault()
-              scrollToSection("#home")
+              e.preventDefault();
+              scrollToSection("#home");
             }}
           >
-            <span className="text-primary">Dev</span>Portfolio
+            <span className="text-primary">Aayush </span>Goel
           </Link>
 
           {/* Desktop Navigation */}
@@ -64,8 +66,8 @@ export default function Navbar() {
                 href={link.href}
                 className="text-sm font-medium transition-colors hover:text-primary"
                 onClick={(e) => {
-                  e.preventDefault()
-                  scrollToSection(link.href)
+                  e.preventDefault();
+                  scrollToSection(link.href);
                 }}
               >
                 {link.name}
@@ -77,7 +79,12 @@ export default function Navbar() {
           {/* Mobile Navigation Toggle */}
           <div className="flex items-center md:hidden">
             <ModeToggle />
-            <Button variant="ghost" size="icon" className="ml-2" onClick={() => setIsOpen(!isOpen)}>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="ml-2"
+              onClick={() => setIsOpen(!isOpen)}
+            >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </Button>
           </div>
@@ -93,8 +100,8 @@ export default function Navbar() {
                   href={link.href}
                   className="text-sm font-medium transition-colors hover:text-primary py-2"
                   onClick={(e) => {
-                    e.preventDefault()
-                    scrollToSection(link.href)
+                    e.preventDefault();
+                    scrollToSection(link.href);
                   }}
                 >
                   {link.name}
@@ -105,5 +112,5 @@ export default function Navbar() {
         )}
       </div>
     </header>
-  )
+  );
 }

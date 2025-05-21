@@ -1,49 +1,49 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react"
-import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
+import { useEffect, useRef } from "react";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 
 export default function Hero() {
-  const sectionRef = useRef<HTMLElement>(null)
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-in")
+            entry.target.classList.add("animate-fade-in");
           }
-        })
+        });
       },
-      { threshold: 0.1 },
-    )
+      { threshold: 0.1 }
+    );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+      observer.observe(sectionRef.current);
     }
 
     return () => {
       if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
+        observer.unobserve(sectionRef.current);
       }
-    }
-  }, [])
+    };
+  }, []);
 
   const scrollToProjects = () => {
-    const projectsSection = document.querySelector("#projects")
+    const projectsSection = document.querySelector("#projects");
     if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: "smooth" })
+      projectsSection.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   const scrollToContact = () => {
-    const contactSection = document.querySelector("#contact")
+    const contactSection = document.querySelector("#contact");
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" })
+      contactSection.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <section
@@ -54,9 +54,13 @@ export default function Hero() {
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/20 via-background to-background"></div>
 
       <div className="container mx-auto max-w-4xl text-center">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">
-            <span className="text-primary">Web Developer</span> Portfolio
+            <span className="text-primary">Web Developer</span> {/*Portfolio */}
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Crafting Scalable and Interactive Web Solutions from Scratch
@@ -84,13 +88,21 @@ export default function Hero() {
           className="flex justify-center space-x-6 mb-16"
         >
           <Button variant="ghost" size="icon" asChild>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Github className="h-6 w-6" />
               <span className="sr-only">GitHub</span>
             </a>
           </Button>
           <Button variant="ghost" size="icon" asChild>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Linkedin className="h-6 w-6" />
               <span className="sr-only">LinkedIn</span>
             </a>
@@ -114,9 +126,9 @@ export default function Hero() {
           variant="ghost"
           size="icon"
           onClick={() => {
-            const aboutSection = document.querySelector("#about")
+            const aboutSection = document.querySelector("#about");
             if (aboutSection) {
-              aboutSection.scrollIntoView({ behavior: "smooth" })
+              aboutSection.scrollIntoView({ behavior: "smooth" });
             }
           }}
         >
@@ -125,5 +137,5 @@ export default function Hero() {
         </Button>
       </motion.div>
     </section>
-  )
+  );
 }
