@@ -1,34 +1,92 @@
-<<<<<<< HEAD
-# Portfolio website
+# 🚀 Aayush Goel — Portfolio Website
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+Welcome to my personal developer portfolio website. I’m a **Full Stack Web Developer** experienced in creating modern, scalable, and user-friendly applications using a variety of technologies across both frontend and backend.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/aayush-goels-projects/v0-portfolio-website)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/xA104bIkxo3)
+This portfolio showcases my projects, technical skills, and ways to connect with me.
 
-## Overview
+---
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+## 🌐 Live Website
 
-## Deployment
+🔗 **[Visit Portfolio](https://aayush-goel.vercel.app/)**  
+_(Deployed using Vercel)_
 
-Your project is live at:
+---
 
-**[https://vercel.com/aayush-goels-projects/v0-portfolio-website](https://vercel.com/aayush-goels-projects/v0-portfolio-website)**
+## 📄 Sections
 
-## Build your app
+- **Home** – Brief intro and call-to-action
+- **About** – Overview of who I am and what I do
+- **Profile** – Explore my skillsets:
+  - 🔷 Frontend
+  - 🔶 Backend
+  - ⚡ Full Stack
+- **Projects** – View my work categorized by technology
+- **Contact Me** – Reach out via form or social platforms
 
-Continue building your app on:
+---
 
-**[https://v0.dev/chat/projects/xA104bIkxo3](https://v0.dev/chat/projects/xA104bIkxo3)**
+## 🧠 Technologies & Tools
 
-## How It Works
+### 👨‍💻 Languages:
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
-=======
-# aayushportfolio
->>>>>>> c06be3b7905479cd4518e559f4f9fecf63e6feaa
+- HTML, CSS, JavaScript, TypeScript
+- Python, C
+
+### ⚛️ Frontend:
+
+- React.js
+- Next.js
+- Tailwind CSS
+- Chakra UI
+- Shadcn UI
+- Three.js (for 3D/interactive elements)
+
+### 🛠️ Backend:
+
+- Node.js
+- Express.js
+
+### 🧰 Tools & Services:
+
+- Git & GitHub
+- Vercel (for deployment)
+- Visual Studio Code
+- Postman
+
+---
+
+## 💼 Projects Highlight
+
+Projects are categorized by tech stack (Frontend / Backend / Full Stack). Some of the key ones include:
+
+- 🔹 **Task Management App** – React + Express + MongoDB
+- 🔹 **Store Inventory System** – MERN stack with role-based access
+- 🔹 **Museum Ticket Chatbot** – Rule-based chatbot with carousel and multilingual support
+- 🔹 **Password Manager** – Create/edit/delete passwords with UI filtering
+- 🔹 **Blood Donor App** – Helps users find and register blood donors
+
+> 👉 Want to see more? Visit the **Projects** section on the live site.
+
+---
+
+## 📬 Contact
+
+Feel free to reach out for collaborations, freelance opportunities, or just a chat!
+
+- 📧 Email: mgoel1296@gmail.com
+- 💼 LinkedIn: [linkedin.com/in/goel-aayush](https://linkedin.com/in/goel-aayush)
+- 💻 GitHub: [github.com/goel-aayush](https://github.com/goel-aayush)
+
+---
+
+## 📌 Future Enhancements
+
+- Dark mode toggle
+- Multilingual support
+- Blog section for writing about tech and projects
+- Interactive timeline of learning journey
+
+---
+
+> Designed & developed with ❤️ by Aayush Goel
