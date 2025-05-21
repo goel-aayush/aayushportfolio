@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Portfolio website
 
 *Automatically synced with your [v0.dev](https://v0.dev) deployments*
@@ -28,3 +29,6 @@ Continue building your app on:
 2. Deploy your chats from the v0 interface
 3. Changes are automatically pushed to this repository
 4. Vercel deploys the latest version from this repository
+=======
+# aayushportfolio
+>>>>>>> c06be3b7905479cd4518e559f4f9fecf63e6feaa
